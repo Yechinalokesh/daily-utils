@@ -1,10 +1,7 @@
 @echo off
 cd /d C:\DailyUtils
-
-for /L %%i in (1,1,40) do (
-    echo Commit number %%i on %date% %time% >> activity_log.txt
-    git add activity_log.txt
-    git commit -m "Auto commit %%i on %date%"
-)
-
+git pull origin main --rebase
+echo Hello >> activity_log.txt
+git add .
+git commit -m "Auto commit on %date%"
 git push origin main
